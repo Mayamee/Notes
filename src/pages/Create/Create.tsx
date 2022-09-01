@@ -10,7 +10,6 @@ const Create: FunctionComponent<CreateProps> = () => {
     <div className="Create">
       <Container>
         <Typography
-          sx={{}}
           variant="h6"
           component="h2"
           gutterBottom
@@ -19,12 +18,6 @@ const Create: FunctionComponent<CreateProps> = () => {
           Create a new Note
         </Typography>
         <Button
-          sx={{
-            fontSize: 60,
-            "&:hover": {
-              fontSize: 120,
-            },
-          }}
           type="submit"
           color="secondary"
           variant="contained"
