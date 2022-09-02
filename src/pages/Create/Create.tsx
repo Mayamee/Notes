@@ -1,8 +1,15 @@
 import { FunctionComponent, useState } from "react";
-import { Typography, Button, TextField } from "@mui/material";
+import {
+  Typography,
+  Button,
+  TextField,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
 import { Container } from "@mui/system";
 import { KeyboardArrowRight } from "@mui/icons-material";
-
+import { Radio, RadioGroup } from "@mui/material";
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
@@ -11,6 +18,8 @@ const Create: FunctionComponent<CreateProps> = () => {
 
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+
+  const [cathegory, setCathegory] = useState("todos");
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -21,9 +30,14 @@ const Create: FunctionComponent<CreateProps> = () => {
     if (details === "") setDetailsError(true);
 
     if (title && details) {
-      console.log({ title, details });
+      console.log({ title, details, cathegory });
     }
   };
+
+  const cathegoryHandler: React.ChangeEventHandler<HTMLInputElement> = ({
+    target: { value },
+  }) => setCathegory(value);
+
   return (
     <div className="Create">
       <Container>
@@ -58,6 +72,46 @@ const Create: FunctionComponent<CreateProps> = () => {
             required
             error={detailsError}
           />
+          <FormControl
+            sx={{
+              display: "block",
+              margin: "20px 0",
+            }}
+          >
+            <FormLabel
+              sx={{ transition: "color 0.3s ease" }}
+              id="form-cathegory"
+              color="secondary"
+            >
+              Notes cathegory
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="form-cathegory"
+              onChange={cathegoryHandler}
+              value={cathegory}
+            >
+              <FormControlLabel
+                value={"money"}
+                control={<Radio color="secondary" />}
+                label={"Money"}
+              />
+              <FormControlLabel
+                value={"todos"}
+                control={<Radio color="secondary" />}
+                label={"Todos"}
+              />
+              <FormControlLabel
+                value={"reminders"}
+                control={<Radio color="secondary" />}
+                label={"Reminders"}
+              />
+              <FormControlLabel
+                value={"some_stuff"}
+                control={<Radio color="secondary" />}
+                label={"Some stuff"}
+              />
+            </RadioGroup>
+          </FormControl>
           <Button
             type="submit"
             color="secondary"
