@@ -10,16 +10,19 @@ import {
 import { Container } from "@mui/system";
 import { KeyboardArrowRight } from "@mui/icons-material";
 import { Radio, RadioGroup } from "@mui/material";
+import NoteService from "../../services/NoteService";
+import { useNavigate } from "react-router-dom";
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
 
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
 
-  const [cathegory, setCathegory] = useState("todos");
+  const [category, setCategory] = useState("todos");
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -29,14 +32,16 @@ const Create: FunctionComponent<CreateProps> = () => {
 
     if (details === "") setDetailsError(true);
 
-    if (title && details) {
-      console.log({ title, details, cathegory });
+    if (title && details && category) {
+      NoteService.addNote({ title, details, category }).then((res) => {
+        navigate("/");
+      });
     }
   };
 
-  const cathegoryHandler: React.ChangeEventHandler<HTMLInputElement> = ({
+  const categoryHandler: React.ChangeEventHandler<HTMLInputElement> = ({
     target: { value },
-  }) => setCathegory(value);
+  }) => setCategory(value);
 
   return (
     <div className="Create">
@@ -80,15 +85,15 @@ const Create: FunctionComponent<CreateProps> = () => {
           >
             <FormLabel
               sx={{ transition: "color 0.3s ease" }}
-              id="form-cathegory"
+              id="form-category"
               color="secondary"
             >
-              Notes cathegory
+              Notes category
             </FormLabel>
             <RadioGroup
-              aria-labelledby="form-cathegory"
-              onChange={cathegoryHandler}
-              value={cathegory}
+              aria-labelledby="form-category"
+              onChange={categoryHandler}
+              value={category}
             >
               <FormControlLabel
                 value={"money"}
