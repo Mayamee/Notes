@@ -5,8 +5,11 @@ declare global {
     interface Theme {
       layout: {
         wrapperHeight: string;
+        appbar: {
+          width: string | number;
+        };
         drawer: {
-          width: number;
+          width: string | number;
           activeButtonColor: string;
 
           heading: {
@@ -43,8 +46,11 @@ declare global {
     interface ThemeOptions {
       layout?: {
         wrapperHeight?: string;
+        appbar?: {
+          width?: string | number;
+        };
         drawer?: {
-          width?: number;
+          width?: string | number;
           activeButtonColor?: string;
           heading?: {
             padding?: string;

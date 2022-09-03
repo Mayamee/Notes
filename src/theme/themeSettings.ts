@@ -1,6 +1,12 @@
 import { purple } from "@mui/material/colors";
 import { createTheme } from "@mui/material";
 
+const CONSTANTS = {
+  drawer: {
+    width: 240,
+  },
+};
+
 export default createTheme({
   palette: {
     primary: {
@@ -16,10 +22,13 @@ export default createTheme({
     fontWeightBold: 700,
   },
   layout: {
+    appbar: {
+      width: `calc(100% - ${CONSTANTS.drawer.width}px)`,
+    },
     drawer: {
       activeButtonColor: "#f4f4f4",
       heading: { padding: "15px", textAlign: "left" },
-      width: 240,
+      width: CONSTANTS.drawer.width,
     },
     wrapperHeight: "100vh",
   },

@@ -1,18 +1,22 @@
 import { Theme } from "@mui/material/styles";
+import { format } from "date-fns";
 import { FunctionComponent } from "react";
 import {
+  AppBar,
   Box,
   Drawer,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Toolbar,
   Typography,
 } from "@mui/material";
 import { AddCircleOutline, SubjectOutlined } from "@mui/icons-material";
 import IMenuItem from "../../models/IMenuItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@emotion/react";
+import useAppBarHeight from "../../hooks/useAppBarHeight";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -21,6 +25,8 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const appBarHeight = useAppBarHeight();
+
   const theme = useTheme() as Theme;
 
   const menuItems: IMenuItem[] = [
@@ -52,6 +58,25 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
         }}
         className="wrapper-container"
       >
+        <AppBar
+          elevation={0}
+          sx={{
+            width: theme.layout.appbar.width,
+          }}
+        >
+          <Toolbar>
+            <Typography
+              variant="h5"
+              component="h3"
+              sx={{
+                flexGrow: 1,
+              }}
+            >
+              Today is the {format(new Date(), "do MMMM Y")}
+            </Typography>
+            <Typography>Mew</Typography>
+          </Toolbar>
+        </AppBar>
         <Drawer
           variant="permanent"
           anchor="left"
@@ -92,10 +117,18 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
             ))}
           </List>
         </Drawer>
+
         <Box
           component="main"
           sx={{ background: theme.pages.background, flexGrow: 1 }}
         >
+          <Box
+            className="appBarSpacer"
+            component="div"
+            sx={{
+              height: appBarHeight,
+            }}
+          />
           {children}
         </Box>
       </Box>
