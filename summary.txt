@@ -1,0 +1,4 @@
+https://www.carlrippon.com/react-children-with-typescript/
+https://mui.com/material-ui/react-card/
+Grid system has 12 columns
+<Grid container spacing={3}> - 1 spacing = 8px === there is 24px here

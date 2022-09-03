@@ -14,4 +14,7 @@ export default class NoteService {
       },
     });
   }
+  static deleteNote(id: number): Promise<AxiosResponse> {
+    return $api.delete(`notes/${id}`);
+  }
 }
