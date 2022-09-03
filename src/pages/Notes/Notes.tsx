@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import INoteResponse from "../../models/INoteResponse";
 import NoteService from "../../services/NoteService";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import NoteCard from "../../components/NoteCard/NoteCard";
 interface NotesProps {}
@@ -21,7 +21,7 @@ const Notes: FunctionComponent<NotesProps> = () => {
   return (
     <div className="Notes">
       <Container>
-        <h2>Notes page</h2>
+        <Typography variant="h5" component="h2">Notes page</Typography>
 
         {notes.length !== 0 && (
           <Grid container spacing={3}>

@@ -6,7 +6,6 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import INote from "../../models/INote";
 import INoteResponse from "../../models/INoteResponse";
 import { DeleteOutlined } from "@mui/icons-material";
 interface NoteCardProps {
