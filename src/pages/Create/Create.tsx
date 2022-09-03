@@ -6,6 +6,9 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
+  Box,
+  Theme,
+  useTheme,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { KeyboardArrowRight } from "@mui/icons-material";
@@ -16,6 +19,7 @@ interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
   const navigate = useNavigate();
+  const theme = useTheme() as Theme;
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
 
@@ -44,13 +48,14 @@ const Create: FunctionComponent<CreateProps> = () => {
   }) => setCategory(value);
 
   return (
-    <div className="Create">
+    <Box component="div" className="Create">
       <Container>
         <Typography
-          variant="h6"
+          sx={{
+            margin: theme.pages.create.title.margin,
+          }}
+          variant="h5"
           component="h2"
-          gutterBottom
-          color="textSecondary"
         >
           Create a new Note
         </Typography>
@@ -70,7 +75,7 @@ const Create: FunctionComponent<CreateProps> = () => {
             label="Details"
             onChange={({ target: { value } }) => setDetails(value)}
             multiline
-            rows={4}
+            rows={theme.pages.create.form.textArea.rows}
             variant="outlined"
             color="secondary"
             fullWidth
@@ -127,7 +132,7 @@ const Create: FunctionComponent<CreateProps> = () => {
           </Button>
         </form>
       </Container>
-    </div>
+    </Box>
   );
 };
 
