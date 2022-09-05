@@ -11,6 +11,7 @@ import {
   ListItemText,
   Toolbar,
   Typography,
+  Avatar,
 } from "@mui/material";
 import { AddCircleOutline, SubjectOutlined } from "@mui/icons-material";
 import IMenuItem from "../../models/IMenuItem";
@@ -74,7 +75,13 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
             >
               Today is the {format(new Date(), "do MMMM Y")}
             </Typography>
-            <Typography>Mew</Typography>
+            <Typography sx={{ marginLeft: 1 }}>Mew</Typography>
+            <Avatar
+              src="/images/avatar.png"
+              sx={{
+                marginLeft: 1.5,
+              }}
+            />
           </Toolbar>
         </AppBar>
         <Drawer

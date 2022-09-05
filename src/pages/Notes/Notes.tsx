@@ -2,9 +2,10 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { Theme } from "@mui/material";
 import INoteResponse from "../../models/INoteResponse";
 import NoteService from "../../services/NoteService";
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { Container } from "@mui/system";
 import NoteCard from "../../components/NoteCard/NoteCard";
+import Masonry from "react-masonry-css";
 interface NotesProps {}
 
 const Notes: FunctionComponent<NotesProps> = () => {
@@ -19,7 +20,15 @@ const Notes: FunctionComponent<NotesProps> = () => {
       setNotes(notes.filter((note) => note.id !== id))
     );
   };
-
+  const makeBreakPointsMasonry = (theme: Theme) => {
+    const { lg, md } = theme.breakpoints.values;
+    return {
+      default: 3,
+      [lg]: 2,
+      [md]: 1,
+    };
+  };
+  makeBreakPointsMasonry(theme);
   return (
     <Box component="div" className="Notes">
       <Container>
@@ -34,13 +43,17 @@ const Notes: FunctionComponent<NotesProps> = () => {
         </Typography>
 
         {notes.length !== 0 && (
-          <Grid container spacing={3}>
+          <Masonry
+            breakpointCols={makeBreakPointsMasonry(theme)}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
             {notes.map((note, index) => (
-              <Grid item key={`${note.title}-${index}`} xs={12} md={6} lg={4}>
+              <Box component="div" key={`${note.title}-${index}`}>
                 <NoteCard note={note} onDelete={handleDeleteNote} />
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Masonry>
         )}
       </Container>
     </Box>

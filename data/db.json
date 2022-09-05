@@ -17,6 +17,18 @@
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "category": "todos",
       "id": 3
+    },
+    {
+      "title": "Pay the postman",
+      "details": "Sit esse et do qui veniam proident culpa dolore proident ex sint cillum cupidatat magna. Id adipisicing consequat duis pariatur ex elit id magna velit cillum ex veniam excepteur. Eu et cillum incididunt culpa proident adipisicing irure quis cillum. Incididunt est consequat ut in est nostrud ipsum aliquip in non culpa duis. Dolore sunt do tempor dolor. Qui qui ullamco id excepteur dolore consequat aliquip qui aliqua ex velit. Qui sint tempor reprehenderit dolore Lorem do anim nisi.\nDuis cupidatat consequat pariatur id Lorem minim ullamco deserunt sunt est cillum consectetur excepteur Lorem. Sit ut duis culpa dolore culpa aliquip consequat. Id nulla proident nulla laboris ea veniam sint amet.",
+      "category": "money",
+      "id": 4
+    },
+    {
+      "title": "Some ripple",
+      "details": "Sit esse et do qui veniam proident culpa dolore proident ex sint cillum cupidatat magna. Id adipisicing consequat duis pariatur ex elit id magna velit cillum ex veniam excepteur. Eu et cillum incididunt culpa proident adipisicing irure quis cillum. Incididunt est consequat ut in est nostrud ipsum aliquip in non culpa duis. Dolore sunt do tempor dolor. Qui qui ullamco id excepteur dolore consequat aliquip qui aliqua ex velit. Qui sint tempor reprehenderit dolore Lorem do anim nisi.\nDuis cupidatat consequat pariatur id Lorem minim ullamco deserunt sunt est cillum consectetur excepteur Lorem. Sit ut duis culpa dolore culpa aliquip consequat. Id nulla proident nulla laboris ea veniam sint amet.",
+      "category": "reminders",
+      "id": 6
     }
   ]
 }
