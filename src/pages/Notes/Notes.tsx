@@ -55,6 +55,16 @@ const Notes: FunctionComponent<NotesProps> = () => {
             ))}
           </Masonry>
         )}
+        {notes.length === 0 && (
+          <Typography
+            variant="h6"
+            component="p"
+            sx={{ fontWeight: 400 }}
+            color="GrayText"
+          >
+            There aren't notes here...
+          </Typography>
+        )}
       </Container>
     </Box>
   );
