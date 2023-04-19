@@ -1,34 +1,32 @@
-import { FunctionComponent, useEffect, useState } from "react";
-import { Theme } from "@mui/material";
-import INoteResponse from "../../models/INoteResponse";
-import NoteService from "../../services/NoteService";
-import { Box, Typography, useTheme } from "@mui/material";
-import { Container } from "@mui/system";
-import NoteCard from "../../components/NoteCard/NoteCard";
-import Masonry from "react-masonry-css";
+import { FunctionComponent, useEffect, useState } from 'react'
+import { Theme } from '@mui/material'
+import INoteResponse from '../../models/INoteResponse'
+import NoteService from '../../services/NoteService'
+import { Box, Typography, useTheme } from '@mui/material'
+import { Container } from '@mui/system'
+import NoteCard from '../../components/NoteCard/NoteCard'
+import Masonry from 'react-masonry-css'
 interface NotesProps {}
 
 const Notes: FunctionComponent<NotesProps> = () => {
-  const [notes, setNotes] = useState<INoteResponse[]>([]);
-  const theme = useTheme() as Theme;
+  const [notes, setNotes] = useState<INoteResponse[]>([])
+  const theme = useTheme() as Theme
   useEffect(() => {
-    NoteService.getAllNotes().then((res) => setNotes(res.data));
-  }, []);
+    NoteService.getAllNotes().then((res) => setNotes(res.data))
+  }, [])
 
   const handleDeleteNote = (id: number) => {
-    NoteService.deleteNote(id).then((_res) =>
-      setNotes(notes.filter((note) => note.id !== id))
-    );
-  };
+    NoteService.deleteNote(id).then((_res) => setNotes(notes.filter((note) => note.id !== id)))
+  }
   const makeBreakPointsMasonry = (theme: Theme) => {
-    const { lg, md } = theme.breakpoints.values;
+    const { lg, md } = theme.breakpoints.values
     return {
       default: 3,
       [lg]: 2,
       [md]: 1,
-    };
-  };
-  makeBreakPointsMasonry(theme);
+    }
+  }
+  makeBreakPointsMasonry(theme)
   return (
     <Box component="div" className="Notes">
       <Container>
@@ -56,18 +54,13 @@ const Notes: FunctionComponent<NotesProps> = () => {
           </Masonry>
         )}
         {notes.length === 0 && (
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{ fontWeight: 400 }}
-            color="GrayText"
-          >
+          <Typography variant="h6" component="p" sx={{ fontWeight: 400 }} color="GrayText">
             There aren't notes here...
           </Typography>
         )}
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default Notes;
+export default Notes

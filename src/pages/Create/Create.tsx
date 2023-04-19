@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState } from 'react'
 import {
   Typography,
   Button,
@@ -9,43 +9,42 @@ import {
   Box,
   Theme,
   useTheme,
-} from "@mui/material";
-import { Container } from "@mui/system";
-import { KeyboardArrowRight } from "@mui/icons-material";
-import { Radio, RadioGroup } from "@mui/material";
-import NoteService from "../../services/NoteService";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material'
+import { Container } from '@mui/system'
+import { KeyboardArrowRight } from '@mui/icons-material'
+import { Radio, RadioGroup } from '@mui/material'
+import NoteService from '../../services/NoteService'
+import { useNavigate } from 'react-router-dom'
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
-  const navigate = useNavigate();
-  const theme = useTheme() as Theme;
-  const [title, setTitle] = useState("");
-  const [details, setDetails] = useState("");
+  const navigate = useNavigate()
+  const theme = useTheme() as Theme
+  const [title, setTitle] = useState('')
+  const [details, setDetails] = useState('')
 
-  const [titleError, setTitleError] = useState(false);
-  const [detailsError, setDetailsError] = useState(false);
+  const [titleError, setTitleError] = useState(false)
+  const [detailsError, setDetailsError] = useState(false)
 
-  const [category, setCategory] = useState("todos");
+  const [category, setCategory] = useState('todos')
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    setTitleError(false);
-    setDetailsError(false);
-    if (title === "") setTitleError(true);
+    event.preventDefault()
+    setTitleError(false)
+    setDetailsError(false)
+    if (title === '') setTitleError(true)
 
-    if (details === "") setDetailsError(true);
+    if (details === '') setDetailsError(true)
 
     if (title && details && category) {
       NoteService.addNote({ title, details, category }).then((res) => {
-        navigate("/");
-      });
+        navigate('/')
+      })
     }
-  };
+  }
 
-  const categoryHandler: React.ChangeEventHandler<HTMLInputElement> = ({
-    target: { value },
-  }) => setCategory(value);
+  const categoryHandler: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) =>
+    setCategory(value)
 
   return (
     <Box component="div" className="Create">
@@ -84,41 +83,33 @@ const Create: FunctionComponent<CreateProps> = () => {
           />
           <FormControl
             sx={{
-              display: "block",
-              margin: "20px 0",
+              display: 'block',
+              margin: '20px 0',
             }}
           >
-            <FormLabel
-              sx={{ transition: "color 0.3s ease" }}
-              id="form-category"
-              color="secondary"
-            >
+            <FormLabel sx={{ transition: 'color 0.3s ease' }} id="form-category" color="secondary">
               Notes category
             </FormLabel>
-            <RadioGroup
-              aria-labelledby="form-category"
-              onChange={categoryHandler}
-              value={category}
-            >
+            <RadioGroup aria-labelledby="form-category" onChange={categoryHandler} value={category}>
               <FormControlLabel
-                value={"money"}
+                value={'money'}
                 control={<Radio color="secondary" />}
-                label={"Money"}
+                label={'Money'}
               />
               <FormControlLabel
-                value={"todos"}
+                value={'todos'}
                 control={<Radio color="secondary" />}
-                label={"Todos"}
+                label={'Todos'}
               />
               <FormControlLabel
-                value={"reminders"}
+                value={'reminders'}
                 control={<Radio color="secondary" />}
-                label={"Reminders"}
+                label={'Reminders'}
               />
               <FormControlLabel
-                value={"some_stuff"}
+                value={'some_stuff'}
                 control={<Radio color="secondary" />}
-                label={"Some stuff"}
+                label={'Some stuff'}
               />
             </RadioGroup>
           </FormControl>
@@ -133,7 +124,7 @@ const Create: FunctionComponent<CreateProps> = () => {
         </form>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default Create;
+export default Create

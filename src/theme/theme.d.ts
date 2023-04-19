@@ -1,86 +1,86 @@
-type textPosition = "center" | "left" | "right";
+type textPosition = 'center' | 'left' | 'right'
 
 declare global {
-  declare module "@mui/material/styles" {
+  declare module '@mui/material/styles' {
     interface Theme {
       layout: {
-        wrapperHeight: string;
+        wrapperHeight: string
         appbar: {
-          width: string | number;
-        };
+          width: string | number
+        }
         drawer: {
-          width: string | number;
-          activeButtonColor: string;
+          width: string | number
+          activeButtonColor: string
 
           heading: {
-            padding: string;
-            textAlign: textPosition;
-          };
-        };
-      };
+            padding: string
+            textAlign: textPosition
+          }
+        }
+      }
       listItemButton: {
         color: {
-          active: string;
-        };
-      };
+          active: string
+        }
+      }
       pages: {
-        background: string;
+        background: string
         notes: {
           title: {
-            margin: string;
-          };
-        };
+            margin: string
+          }
+        }
         create: {
           title: {
-            margin: string;
-          };
+            margin: string
+          }
           form: {
             textArea: {
-              rows: number;
-            };
-          };
-        };
-      };
+              rows: number
+            }
+          }
+        }
+      }
     }
 
     interface ThemeOptions {
       layout?: {
-        wrapperHeight?: string;
+        wrapperHeight?: string
         appbar?: {
-          width?: string | number;
-        };
+          width?: string | number
+        }
         drawer?: {
-          width?: string | number;
-          activeButtonColor?: string;
+          width?: string | number
+          activeButtonColor?: string
           heading?: {
-            padding?: string;
-            textAlign?: textPosition;
-          };
-        };
-      };
+            padding?: string
+            textAlign?: textPosition
+          }
+        }
+      }
       listItemButton?: {
         color?: {
-          active?: string;
-        };
-      };
+          active?: string
+        }
+      }
       pages?: {
-        background?: string;
+        background?: string
         notes?: {
           title?: {
-            margin?: string;
-          };
-        };
+            margin?: string
+          }
+        }
         create?: {
           title?: {
-            margin?: string;
-          };
+            margin?: string
+          }
           form?: {
             textArea?: {
-              rows?: number;
-            };
-          };
-        };
-      };
+              rows?: number
+            }
+          }
+        }
+      }
     }
   }
 }

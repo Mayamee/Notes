@@ -1,5 +1,5 @@
 export default interface INote {
-  title: string;
-  details: string;
-  category: string;
+  title: string
+  details: string
+  category: string
 }

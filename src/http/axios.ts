@@ -1,7 +1,9 @@
-import axios from "axios";
+import axios from 'axios'
 
-const API_URL = "http://localhost:8888";
+const { REACT_APP_API_BASE_URL } = process.env
 
-const $api = axios.create({ baseURL: API_URL });
+const API_URL = REACT_APP_API_BASE_URL || 'http://localhost:8888'
 
-export default $api;
+const $api = axios.create({ baseURL: API_URL })
+
+export default $api

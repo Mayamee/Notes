@@ -1,9 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@mui/material";
-import Create from "./pages/Create/Create";
-import Notes from "./pages/Notes/Notes";
-import Layout from "./hoc/Layout/Layout";
-import theme from "./theme/themeSettings";
+import { Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material'
+import Create from './pages/Create/Create'
+import Notes from './pages/Notes/Notes'
+import Layout from './hoc/Layout/Layout'
+import theme from './theme/themeSettings'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         </Routes>
       </Layout>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
